@@ -240,3 +240,5 @@ xgboost==1.6.2
 XlsxWriter==3.0.3
 yapf==0.32.0
 zipp==3.10.0
+tensorflow_model_analysis==0.32.0
+tensorflow_data_validation==1.1.0
