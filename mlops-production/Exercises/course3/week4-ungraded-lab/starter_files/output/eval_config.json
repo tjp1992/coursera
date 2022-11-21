@@ -1,0 +1,89 @@
+{
+  "evalConfig": {
+    "modelSpecs": [
+      {
+        "labelKey": "label"
+      }
+    ],
+    "slicingSpecs": [
+      {},
+      {
+        "featureKeys": [
+          "sex"
+        ]
+      },
+      {
+        "featureKeys": [
+          "race"
+        ]
+      },
+      {
+        "featureValues": {
+          "native-country": "Cambodia"
+        }
+      },
+      {
+        "featureValues": {
+          "native-country": "Canada"
+        }
+      },
+      {
+        "featureKeys": [
+          "sex",
+          "race"
+        ]
+      }
+    ],
+    "metricsSpecs": [
+      {
+        "metrics": [
+          {
+            "className": "ExampleCount"
+          },
+          {
+            "className": "BinaryAccuracy"
+          },
+          {
+            "className": "BinaryCrossentropy"
+          },
+          {
+            "className": "AUC"
+          },
+          {
+            "className": "AUCPrecisionRecall"
+          },
+          {
+            "className": "Precision"
+          },
+          {
+            "className": "Recall"
+          },
+          {
+            "className": "MeanLabel"
+          },
+          {
+            "className": "MeanPrediction"
+          },
+          {
+            "className": "Calibration"
+          },
+          {
+            "className": "CalibrationPlot"
+          },
+          {
+            "className": "ConfusionMatrixPlot"
+          }
+        ],
+        "modelNames": [
+          ""
+        ]
+      }
+    ]
+  },
+  "version": "0.32.0",
+  "dataLocation": "starter_files/data/tfrecord/data_test.tfrecord",
+  "fileFormat": "tfrecords",
+  "modelLocations": {
+    "": "starter_files/models/model1"
+  }
+}
