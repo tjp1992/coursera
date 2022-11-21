@@ -84,7 +84,7 @@
   "dataLocation": "starter_files/data/tfrecord/data_test.tfrecord",
   "fileFormat": "tfrecords",
   "modelLocations": {
-    "baseline": "starter_files/models/model2",
-    "candidate": "starter_files/models/model1"
+    "candidate": "starter_files/models/model1",
+    "baseline": "starter_files/models/model2"
   }
 }
