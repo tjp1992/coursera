@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 
-
 # instantiate empty lists
 title = []
 runtime = []
@@ -16,6 +15,7 @@ gross = []
 year = []
 director = []
 description = []
+url_li = []
 
 # create dictionary with all the list
 movies = {
@@ -28,11 +28,12 @@ movies = {
     'gross': gross,
     'year': year,
     'director': director,
-    'description': description
+    'description': description,
+    'url': url_li
     }
 
+
 def content_cleaner(soup):
-    ''' Input is a soup object, crawls through the soup object and returns the content of the page'''
     # from soup get all elements with class lister-item-content
     movie_containers = soup.find_all('div', class_ = 'lister-item-content')
 
@@ -62,6 +63,8 @@ def content_cleaner(soup):
         director.append(movie.find_all('p', class_ = '')[0].a.text)
         # from first movie_container get the gross
         gross.append(movie.find('p', class_ ='sort-num_votes-visible').find_all('span', attrs = {'name':'nv'})[1].attrs['data-value'])
+        # from movie_container get the url
+        url_li.append('https://www.imdb.com/'+movie.h3.a['href'])
 
 url = 'https://www.imdb.com/search/title/?groups=top_250&sort=user_rating,desc'
 
