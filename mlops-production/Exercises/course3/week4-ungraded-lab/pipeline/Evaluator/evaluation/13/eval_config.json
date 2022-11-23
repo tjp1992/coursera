@@ -1,0 +1,92 @@
+{
+  "evalConfig": {
+    "modelSpecs": [
+      {
+        "name": "candidate",
+        "signatureName": "serving_default",
+        "labelKey": "label"
+      },
+      {
+        "name": "baseline",
+        "signatureName": "serving_default",
+        "labelKey": "label",
+        "isBaseline": true
+      }
+    ],
+    "slicingSpecs": [
+      {},
+      {
+        "featureKeys": [
+          "race"
+        ]
+      },
+      {
+        "featureKeys": [
+          "sex"
+        ]
+      }
+    ],
+    "metricsSpecs": [
+      {
+        "metrics": [
+          {
+            "className": "ExampleCount"
+          },
+          {
+            "className": "BinaryAccuracy",
+            "threshold": {
+              "valueThreshold": {
+                "lowerBound": 0.5
+              },
+              "changeThreshold": {
+                "absolute": -1e-10,
+                "direction": "HIGHER_IS_BETTER"
+              }
+            }
+          },
+          {
+            "className": "BinaryCrossentropy"
+          },
+          {
+            "className": "AUC"
+          },
+          {
+            "className": "AUCPrecisionRecall"
+          },
+          {
+            "className": "Precision"
+          },
+          {
+            "className": "Recall"
+          },
+          {
+            "className": "MeanLabel"
+          },
+          {
+            "className": "MeanPrediction"
+          },
+          {
+            "className": "Calibration"
+          },
+          {
+            "className": "CalibrationPlot"
+          },
+          {
+            "className": "ConfusionMatrixPlot"
+          }
+        ],
+        "modelNames": [
+          "candidate",
+          "baseline"
+        ]
+      }
+    ]
+  },
+  "version": "0.38.0",
+  "dataLocation": "<user provided PCollection>",
+  "fileFormat": "<unknown>",
+  "modelLocations": {
+    "baseline": "./pipeline/Trainer/model/8/Format-Serving",
+    "candidate": "./pipeline/Trainer/model/12/Format-Serving"
+  }
+}
